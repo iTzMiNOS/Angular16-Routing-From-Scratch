@@ -18,21 +18,26 @@ export class AppComponent implements OnInit {
 
       setTimeout(()=>{
         observer.next('This is From Timeout Function');
+        obsTest$.unsubscribe();
+      },3000)
+      setTimeout(()=>{
+        observer.next('This is From Timeout Function2');
       },5000)
-
       observer.next('Third Return from observor');
     }).subscribe(value => {
         console.log(value);
     });
-  }
   
-  obsTest(){
-    return 'Return From Function';
-    return 'Second Return From Function';
-  }
-  ngAfterViewInit(): void {
-    const ret = this.obsTest();
+    
+    
+    const obsTest = function(){
+      return 'Return From Function';
+      return 'Second Return From Function';
+    }
+    const ret = obsTest();
     console.log(ret);
+    obsTest();
+
   }
 
 }

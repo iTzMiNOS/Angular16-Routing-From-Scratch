@@ -17,7 +17,7 @@ import { SinglePostComponent } from './single-post/single-post.component';
     BrowserModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
-      { path: 'post/:id', component: SinglePostComponent},
+      { path: 'post/:id/:title', component: SinglePostComponent},
       { path: 'posts', component: PostListComponent }
     ])
   ],
